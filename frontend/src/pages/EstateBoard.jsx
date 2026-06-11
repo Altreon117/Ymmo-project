@@ -11,6 +11,7 @@ import '/src/App.css'
 //component
 import Header from '/src/components/Header';
 import Footer from '/src/components/Footer';
+import Filter from '/src/components/Filter';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <Header />
+      <Filter />
       <section id="center">
         <div>
           <h1>My Account Employee</h1>

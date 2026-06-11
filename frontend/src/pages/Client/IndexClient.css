@@ -4,9 +4,68 @@
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
+    font-weight: bold;
 }
 
 .DisplayImg {
     width: 100%;
     height: auto;
+}
+
+.DisplayDirectionContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    text-align: center;
+    color: #000000;
+    background-color: #ffffffc0;
+    border-radius: 30px;
+    padding: 5vh 5vw;
+}
+
+.DisplayTitle {
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.DisplayChoiceContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.Choice1 {
+    border-right: 2px solid #000000;
+    padding-right: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 20px;
+}
+
+.Choice2 {
+    border-left: 2px solid #000000;
+    padding-left: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 20px;
+}
+
+.DisplayButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #791caf;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+    justify-self: center;
 }

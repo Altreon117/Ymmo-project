@@ -4,7 +4,7 @@ import { useState } from 'react'
 import reactLogo from '/src/assets/react.svg'
 import viteLogo from '/src/assets/vite.svg'
 import heroImg from '/src/assets/hero.png'
-import displayImg from '/src/assets/purple_inside_house.jpg'
+import displayImg from '/src/assets/display.jpg'
 
 //style
 import '/src/App.css'
@@ -15,6 +15,8 @@ import Header from '/src/components/Header';
 import Footer from '/src/components/Footer';
 import SearchBar from '/src/components/SearchBar';
 import EstateCard from '/src/components/EstateCard';
+import Filter from '/src/components/Filter';
+import { Link } from 'react-router-dom';
 
 function IndexClient() {
   const [count, setCount] = useState(0)
@@ -25,106 +27,24 @@ function IndexClient() {
       <section id="center">
         <div className="DisplayContainer">
           <img src={displayImg} className="DisplayImg" alt="" />
-        </div>
-        <div>
-          <h1>Accueil</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+          <div className="DisplayDirectionContainer">
+            <h1 className="DisplayTitle">Trouvez votre futur chez-vous</h1>
+            <p className="DisplayText">Découvrez notre sélection de biens immobiliers à vendre et à louer, adaptés à tous les budgets et styles de vie.</p>
+            <div className="DisplayChoiceContainer">
+              <div className="Choice1">
+                <p className="DisplayButtonIndic">Je cherche un bien immobilier</p>
+                <Link to="/EstateBoard" className="DisplayButton">ACHETER OU LOUER</Link>
+              </div>
+              <div className="Choice2">
+                <p className="DisplayButtonIndic">J’estime mon appartement ou ma maison</p>
+                <Link to="/EstateBoard" className="DisplayButton">ESTIMER MON BIEN</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div className="ticks"></div>
+      
       <section id="spacer"></section>
       <Footer />
     </>

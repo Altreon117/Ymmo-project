@@ -4,9 +4,11 @@ import { useState } from 'react'
 import reactLogo from '/src/assets/react.svg'
 import viteLogo from '/src/assets/vite.svg'
 import heroImg from '/src/assets/hero.png'
+import displayImg from '/src/assets/purple_inside_house.jpg'
 
 //style
 import '/src/App.css'
+import './IndexClient.css'
 
 //component
 import Header from '/src/components/Header';
@@ -20,12 +22,9 @@ function IndexClient() {
   return (
     <>
       <Header />
-      <SearchBar />
       <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+        <div className="DisplayContainer">
+          <img src={displayImg} className="DisplayImg" alt="" />
         </div>
         <div>
           <h1>Accueil</h1>

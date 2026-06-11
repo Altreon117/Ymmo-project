@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     align-items: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 10px solid var(--border);
 }
 
 .Bar {
@@ -13,7 +13,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     padding-top: 20px;
     border-right: 1px solid var(--border);
     border-left: 1px solid var(--border);
@@ -29,6 +29,13 @@
     width: 100%;
     max-width: 800px;
     border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    display : grid;
+    grid-template-columns: 1.5fr 1fr;
+    width: 100%;
+    padding-top: 20px;
 }
 
 .navbar ul {
@@ -50,7 +57,8 @@
 
 .logo {
   position: relative;
-  padding: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 
   .base,
   .framework,

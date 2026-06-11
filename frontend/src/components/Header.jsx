@@ -7,6 +7,8 @@ import reactLogo from '/src/assets/react.svg'
 import viteLogo from '/src/assets/vite.svg'
 import heroImg from '/src/assets/hero.png'
 
+import SearchBar from './SearchBar';
+
 //style
 import './Header.css'
   
@@ -25,6 +27,7 @@ function Header() {
                     <h1>Ymmo</h1>
                 </div>
                 <nav className="navbar">
+                    <SearchBar />
                     <ul>
                         <Link to="/">Accueil</Link>
                         <Link to="/EstateBoard">Catalogue</Link>

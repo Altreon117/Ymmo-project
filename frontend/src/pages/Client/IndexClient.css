@@ -1,0 +1,12 @@
+.DisplayContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.DisplayImg {
+    width: 100%;
+    height: auto;
+}

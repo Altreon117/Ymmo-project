@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 from app.database import engine, Base
-from app.models import agence, user, bien, transaction
-from app.routers import biens
+from app.routers import biens, agences
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Ymmo API")
+app = FastAPI(title="Ymmo API", version="1.0")
 
 app.include_router(biens.router)
+app.include_router(agences.router)
 
 @app.get("/")
 def read_root():

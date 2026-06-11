@@ -14,6 +14,7 @@ import { fetchBiens } from '/src/api'
 
 function Catalogue() {
   const [biens, setBiens] = useState([])
+  const [filteredBiens, setFilteredBiens] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -22,6 +23,7 @@ function Catalogue() {
     fetchBiens()
       .then((data) => {
         setBiens(data)
+        setFilteredBiens(data)
       })
       .catch((err) => {
         setError('Impossible de charger les biens.')
@@ -30,10 +32,14 @@ function Catalogue() {
       .finally(() => setLoading(false))
   }, [])
 
+  const handleFilter = (filtered) => {
+    setFilteredBiens(filtered)
+  }
+
   return (
     <>
       <Header />
-      <Filter />
+      <Filter biens={biens} onFilter={handleFilter} />
 
       <section id="center" style={{ padding: '0px' }}>
         <div className="RechercheContainer">
@@ -41,13 +47,13 @@ function Catalogue() {
             <Map />
           </div>
           <div className="ListeBiens">
-            <h1>Liste des biens immobiliers</h1>
-            <p>{biens.length} biens trouvés</p>
+            <h1 className="liste-biens-title">Liste des biens immobiliers</h1>
+            <p>{filteredBiens.length} biens trouvés</p>
             {error && <p className="error-message">{error}</p>}
             <div className="biensContainer">
               {loading && <p>Chargement...</p>}
-              {!loading && biens.length === 0 && <p>Aucun bien trouvé.</p>}
-              {!loading && biens.map((bien) => (
+              {!loading && filteredBiens.length === 0 && <p>Aucun bien trouvé.</p>}
+              {!loading && filteredBiens.map((bien) => (
                 <EstateCard key={bien.id} bien={bien} />
               ))}
             </div>

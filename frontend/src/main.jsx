@@ -31,6 +31,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/MyAccountEmploye" element={<MyAccountEmploye />} />
         <Route path="/EstateManager" element={<EstateManager />} />
         <Route path="/Test" element={<Test />} />
+        <Route path="/App" element={<App />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

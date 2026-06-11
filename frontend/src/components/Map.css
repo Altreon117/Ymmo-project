@@ -1,0 +1,8 @@
+.map-container {
+  /* Ensure the parent div has an explicit height so Leaflet can render */
+  height: 100vh; /* The map will take the full viewport height by default */
+  width: 100%;
+}
+
+/* If you prefer the map to fill its parent (e.g., a flex row),
+   use `.map-container { height: 100%; }` and make sure parent has a height set. */

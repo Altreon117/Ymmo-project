@@ -12,7 +12,7 @@ import '/src/App.css'
 import Header from '/src/components/Header';
 import Footer from '/src/components/Footer';
 
-function App() {
+function Test() {
   const [count, setCount] = useState(0)
 
   return (
@@ -129,4 +129,4 @@ function App() {
   )
 }
 
-export default App
+export default Test

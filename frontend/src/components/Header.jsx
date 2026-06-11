@@ -13,19 +13,32 @@ import './Header.css'
 function Header() {
     return (
         <header className="header">
-            <div className="hero">
-                <img src={heroImg} className="base" width="170" height="179" alt="" />
-                <img src={reactLogo} className="framework" alt="React logo" />
-                <img src={viteLogo} className="vite" alt="Vite logo" />
+            <div className="logo" id ="logo1" >
+                <Link to="/">
+                    <img src={heroImg} className="base" width="100%" height="100%" alt="" />
+                    {/* <img src={reactLogo} className="framework" alt="React logo" /> */}
+                    {/* <img src={viteLogo} className="vite" alt="Vite logo" /> */}
+                </Link>
             </div>
-            <h1>Ymmo</h1>
-            <nav>
-                <ul>
-                    <li><Link to="/Test">Accueil</Link></li>
-                    <li><Link to="/login">Catalogue</Link></li>
-                    <li><Link to="/signup">Contact</Link></li>
-                </ul>
-            </nav>
+            <div className="Bar">
+                <div className="NameHolder">
+                    <h1>Ymmo</h1>
+                </div>
+                <nav className="navbar">
+                    <ul>
+                        <Link to="/">Accueil</Link>
+                        <Link to="/EstateBoard">Catalogue</Link>
+                        <Link to="/Agencies">Nos Agences</Link>
+                    </ul>
+                </nav>
+            </div>
+            <div className="logo" id="logo2">
+                <Link to="/Login">
+                    <img src={heroImg} className="base" alt="" />
+                    {/* <img src={reactLogo} className="framework" alt="React logo" /> */}
+                    {/* <img src={viteLogo} className="vite" alt="Vite logo" /> */}
+                </Link>
+            </div>
         </header>
     );
 }

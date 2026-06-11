@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/signup" element={<SignUp />} />
         <Route path="/EstateBoard" element={<Catalogue />} />
         <Route path="/Agencies" element={<Agencies />} />
-        <Route path="/EstateDetails" element={<EstateDetails />} />
+        <Route path="/EstateDetails/:id" element={<EstateDetails />} />
         <Route path="/MyAccountClient" element={<MyAccountClient />} />
         <Route path="/MyAccountEmploye" element={<MyAccountEmploye />} />
         <Route path="/EstateManager" element={<EstateManager />} />

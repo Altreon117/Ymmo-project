@@ -11,9 +11,15 @@
 
 .ListeBiens {
     display: grid;
-    grid-template-rows: 10% 10% auto;
+    grid-template-rows: 10vh 10vh auto;
     padding: 20px;
     padding-left: 10%;
     gap: 20px;
     text-align: left;
+    overflow-y: auto;
+}
+
+.bienContainer {
+    display:grid;
+    grid-template-rows: 1fr 1fr;
 }

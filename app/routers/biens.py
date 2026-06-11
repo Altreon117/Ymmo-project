@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
 
@@ -22,11 +22,18 @@ def lire_les_biens(db: Session = Depends(get_db)):
 
 @router.post("/", response_model=BienOut)
 def creer_un_bien(bien_entrant: BienCreate, db: Session = Depends(get_db)):
-    nouveau_bien = Bien(**bien_entrant.model_dump()) 
+    nouveau_bien = Bien(**bien_entrant.model_dump())
     db.add(nouveau_bien)
     db.commit()
     db.refresh(nouveau_bien)
     return nouveau_bien
+
+@router.get("/{bien_id}", response_model=BienOut)
+def lire_un_bien(bien_id: int, db: Session = Depends(get_db)):
+    bien = db.query(Bien).filter(Bien.id == bien_id).first()
+    if not bien:
+        raise HTTPException(status_code=404, detail="Bien non trouvé")
+    return bien
 
 @router.get("/recherche")
 def rechercher_biens(

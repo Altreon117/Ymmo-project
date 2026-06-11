@@ -27,7 +27,7 @@ L'API Restful a été développée en Python pour assurer des performances optim
 
 ### Installation et Lancement (Local)
 
-1. **Cloner le dépôt :**
+#### 1. **Cloner le dépôt :**
    ```bash
    git clone <URL_DU_DEPOT>
    cd Ymmo-project
@@ -85,11 +85,11 @@ Cette section détaillera l'interface web (UI/UX) permettant aux clients et aux 
 * Elle respectera les normes d'accessibilité (WCAG, W3C).
 
 ### Technologies utilisées
-* *[À compléter par Raph]*
+* *[À compléter]*
 * *[À compléter]*
 
 ### Lancement du Frontend
-* *[À compléter par Raph : commandes npm install, npm run dev, etc.]*
+* *[À compléter : commandes npm install, npm run dev, etc.]*
 
 ---
 

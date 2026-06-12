@@ -1,0 +1,101 @@
+.estate-card {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden; /* Empêche l'image de déborder des coins arrondis */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Permet aux cartes d'avoir la même hauteur dans une grille */
+  min-height: 550px;
+}
+
+/* L'effet interactif au survol de la souris */
+.estate-card:hover {
+  transform: translateY(-5px); /* Soulève légèrement la carte */
+  box-shadow: var(--shadow);
+  border-color: var(--accent-border);
+}
+
+/* L'image de l'annonce (Miniature) */
+.estate-image {
+  width: 100%;
+  height: 220px; /* Fixe une hauteur uniforme pour toutes les images */
+  object-fit: cover; /* Assure que la photo remplisse le cadre sans se déformer */
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg); /* Fond de secours si l'image est transparente */
+}
+
+/* La zone de texte sous l'image */
+.estate-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pousse le bouton vers le bas si le texte est court */
+  text-align: left;
+  gap: 10px;
+}
+
+/* Le titre de l'annonce */
+.estate-title {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--text-h);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* La description de l'annonce */
+.estate-description {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+  /* Astuce de pro : Coupe le texte après 3 lignes avec des '...' */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Les métadonnées (Ville, Surface, Type) */
+.estate-meta {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  opacity: 0.8;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Le prix */
+.estate-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 10px 0 15px 0;
+}
+
+/* Le bouton d'action */
+.estate-card .btn-primary {
+  margin-top: auto; /* Force le bouton à rester collé en bas de la carte */
+  background-color: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--sans);
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: block;
+}
+
+.estate-card .btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.estate-card .btn-primary:active {
+  transform: scale(0.98);
+}

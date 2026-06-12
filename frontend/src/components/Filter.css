@@ -1,0 +1,8 @@
+.filter {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid var(--border);
+}

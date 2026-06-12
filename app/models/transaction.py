@@ -10,4 +10,4 @@ class Transaction(Base):
     client_id = Column(Integer, ForeignKey("users.id"))
     agent_id = Column(Integer, ForeignKey("users.id"))
     prix_final = Column(Float)
-    date_vente = Column(DateTime, default=datetime.utcnow)
+    date_vente = Column(DateTime, nullable=True)

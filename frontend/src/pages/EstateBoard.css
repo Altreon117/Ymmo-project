@@ -1,0 +1,39 @@
+.RechercheContainer {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    width: 100%;
+}
+
+.Carte {
+    height: 100vh;
+    width: 100%;
+}
+
+.ListeBiens {
+    display: grid;
+    grid-template-rows: 7vh 5vh auto;
+    padding-left: 5%;
+    padding-top: 5%;
+    gap: 20px;
+    text-align: left;
+    max-height: 90vh;
+
+    .liste-biens-title {
+        margin: auto;
+        padding: 0;
+        width: 100%;
+        height: 50%;
+
+    }
+}
+
+.biensContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border: 1px solid var(--border);
+    padding-bottom: 20px;
+    overflow-y: auto;
+    max-height: 100%;
+    padding: 5%;
+}

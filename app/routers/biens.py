@@ -1,11 +1,13 @@
 from typing import Optional
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
 
 from app.database import SessionLocal
 from app.models.bien import Bien
 from app.schemas.bien import BienCreate, BienOut
+
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/biens", tags=["Biens Immobiliers"])
 
@@ -22,11 +24,18 @@ def lire_les_biens(db: Session = Depends(get_db)):
 
 @router.post("/", response_model=BienOut)
 def creer_un_bien(bien_entrant: BienCreate, db: Session = Depends(get_db)):
-    nouveau_bien = Bien(**bien_entrant.model_dump()) 
+    nouveau_bien = Bien(**bien_entrant.model_dump())
     db.add(nouveau_bien)
     db.commit()
     db.refresh(nouveau_bien)
     return nouveau_bien
+
+@router.get("/{bien_id}", response_model=BienOut)
+def lire_un_bien(bien_id: int, db: Session = Depends(get_db)):
+    bien = db.query(Bien).filter(Bien.id == bien_id).first()
+    if not bien:
+        raise HTTPException(status_code=404, detail="Bien non trouvé")
+    return bien
 
 @router.get("/recherche")
 def rechercher_biens(
@@ -63,3 +72,27 @@ def rechercher_biens(
         "total_trouve": len(resultats),
         "resultats": resultats
     }
+
+
+# 1. Un petit schema pour recevoir uniquement le prix
+class PrixUpdate(BaseModel):
+    prix: float
+
+# 2. La route pour récupérer uniquement les biens en attente
+@router.get("/statut/attente", response_model=list[BienOut])
+def lire_biens_en_attente(db: Session = Depends(get_db)):
+    return db.query(Bien).filter(Bien.statut == "WaitingEstimation").all()
+
+# 3. La route pour mettre à jour le prix et passer en "Disponible"
+@router.put("/{bien_id}/estimer", response_model=BienOut)
+def estimer_bien(bien_id: int, estimation: PrixUpdate, db: Session = Depends(get_db)):
+    bien = db.query(Bien).filter(Bien.id == bien_id).first()
+    if not bien:
+        raise HTTPException(status_code=404, detail="Bien non trouvé")
+    
+    bien.prix = estimation.prix
+    bien.statut = "Disponible"
+    
+    db.commit()
+    db.refresh(bien)
+    return bien

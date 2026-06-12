@@ -1,41 +1,34 @@
 // comment est former le squeleette dun composant react
-import React from "react";
-import { useAuth } from '../context/AuthContext';
-import HeaderEmploye from './HeaderEmploye';
-import LogoNav from './LogoNav';
-import SearchBar from './SearchBar';
-import { Link } from 'react-router-dom';
+import React from "react"
+import { Link } from 'react-router-dom'
 
 //assets
 import heroImg from '/src/assets/hero.png'
 
+import SearchBar from './SearchBar'
+import LogoNav from './LogoNav'
+
 //style
-import './Header.css'
+import './HeaderEmploye.css'
   
-function Header() {
-    const { user, isAuthenticated } = useAuth()
-
-    if (isAuthenticated && user?.role === 'employe') {
-      return <HeaderEmploye />
-    }
-
+function HeaderEmploye() {
     return (
         <header className="header">
             <div className="logo" id ="logo1" >
-                <Link to="/">
+                <Link to="/IndexEmploye">
                     <img src={heroImg} className="base" width="100%" height="100%" alt="" />
                 </Link>
             </div>
             <div className="Bar">
                 <div className="NameHolder">
-                    <h1>Ymmo</h1>
+                    <h1>Ymmo - Employé</h1>
                 </div>
                 <nav className="navbar">
-                    <SearchBar />
                     <ul>
-                        <Link to="/">Accueil</Link>
+                        <Link to="/IndexEmploye">Accueil</Link>
                         <Link to="/EstateBoard">Catalogue</Link>
                         <Link to="/Agencies">Nos Agences</Link>
+                        <Link to="/EstateManager">Estimation</Link>
                     </ul>
                 </nav>
             </div>
@@ -46,15 +39,4 @@ function Header() {
     );
 }
 
-export default Header;
-
-//comment utiliser un composant dans un autre fichier
-// import Header from './Header';
-// function App() {
-//     return (
-//         <div>
-//             <Header />
-//             <p>Bienvenue sur mon site</p>
-//         </div>
-//     );
-// }
+export default HeaderEmploye;

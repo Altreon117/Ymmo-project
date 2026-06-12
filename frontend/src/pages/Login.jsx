@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //assets
 import reactLogo from '/src/assets/react.svg'
@@ -12,9 +13,11 @@ import '/src/App.css'
 import Header from '/src/components/Header';
 import Footer from '/src/components/Footer';
 import { loginUser } from '/src/api';
+import { useAuth } from '/src/context/AuthContext';
 
 function Login() {
   const navigate = useNavigate()
+  const { login } = useAuth()
   const [error, setError] = useState('')
 
   async function handleSubmit(event) {
@@ -26,9 +29,26 @@ function Login() {
     const password = form.password.value.trim()
 
     try {
-      const user = await loginUser({ email, password })
-      localStorage.setItem('ymmo_user', JSON.stringify(user))
-      navigate('/EstateBoard')
+      const response = await loginUser({ email, password })
+      // Store user and token in auth context
+      login(
+        {
+          id: response.id,
+          nom: response.nom,
+          email: response.email,
+          role: response.role,
+        },
+        response.token
+      )
+
+      // Redirect based on role
+      if (response.role === 'client') {
+        navigate('/')
+      } else if (response.role === 'employe') {
+        navigate('/IndexEmploye')
+      } else {
+        navigate('/EstateBoard')
+      }
     } catch (err) {
       setError('Identifiants invalides, réessayez.')
     }
@@ -51,6 +71,8 @@ function Login() {
           {error && <p className="form-error">{error}</p>}
           <button type="submit">Login</button>
         </form>
+
+        <Link to="/SignUp">Don't have an account ? Sign up</Link>
       </section>
       <Footer />
     </>
@@ -58,4 +80,3 @@ function Login() {
 }
 
 export default Login
-    

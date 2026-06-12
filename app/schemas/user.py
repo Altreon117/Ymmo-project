@@ -10,6 +10,9 @@ class UserLogin(BaseModel):
     email: str
     password: str
 
+class UserLogout(BaseModel):
+    user_id: int
+
 class UserOut(BaseModel):
     id: int
     nom: str

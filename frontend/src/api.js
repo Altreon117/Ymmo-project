@@ -17,10 +17,10 @@ async function apiRequest(path, options = {}) {
   return res.json();
 }
 
-export async function registerUser({ nom, email, password }) {
+export async function registerUser({ nom, email, password, role }) {
   return apiRequest('/users/register', {
     method: 'POST',
-    body: JSON.stringify({ nom, email, password }),
+    body: JSON.stringify({ nom, email, password, role }),
   });
 }
 
@@ -28,6 +28,13 @@ export async function loginUser({ email, password }) {
   return apiRequest('/users/login', {
     method: 'POST',
     body: JSON.stringify({ email, password }),
+  });
+}
+
+export async function logoutUser(user_id) {
+  return apiRequest('/users/logout', {
+    method: 'POST',
+    body: JSON.stringify({ user_id }),
   });
 }
 

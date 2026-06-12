@@ -9,6 +9,7 @@ import heroImg from '/src/assets/hero.png'
 
 //style
 import '/src/App.css'
+import './MyAccountEmploye.css'
 
 //component
 import Header from '/src/components/Header';
@@ -39,7 +40,7 @@ function MyAccountEmploye() {
           <img src={reactLogo} className="framework" alt="React logo" />
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
-        <div>
+        <div className="infos">
           <h1>Mon Compte Employé</h1>
           <p>Connecté en tant que {user?.nom} ({user?.role})</p>
           <button type="button" onClick={handleLogout} className="logout-button">

@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import heroImg from '../assets/hero.png'
+import reactLogo from '/src/assets/react.svg'
+import viteLogo from '/src/assets/vite.svg'
 import './LogoNav.css'
 
 function LogoNav() {
@@ -23,11 +25,13 @@ function LogoNav() {
   return (
     <div className="logo-nav-container">
       <button
-        className="logo-button"
+        className="logo-stack" /* <-- On utilise la même classe magique ! */
         onClick={handleLogoClick}
         title={isAuthenticated ? `Profil (${user?.nom})` : 'Se connecter'}
       >
-        <img src={heroImg} className="logo-image" alt="Logo" />
+        <img src={heroImg} className="base" alt="Logo" /> {/* <-- Ajout de la classe "base" */}
+        <img src={reactLogo} className="framework" alt="React logo" />
+        <img src={viteLogo} className="vite" alt="Vite logo" />
       </button>
     </div>
   )

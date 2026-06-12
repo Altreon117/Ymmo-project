@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 //assets
 import heroImg from '/src/assets/hero.png'
+import reactLogo from '/src/assets/react.svg'
+import viteLogo from '/src/assets/vite.svg'
 
 import SearchBar from './SearchBar'
 import LogoNav from './LogoNav'

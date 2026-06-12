@@ -9,6 +9,7 @@ import heroImg from '/src/assets/hero.png'
 
 //style
 import '/src/App.css'
+import './MyAccountClient.css'
 
 //component
 import Header from '/src/components/Header';

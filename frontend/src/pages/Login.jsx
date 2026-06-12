@@ -8,6 +8,7 @@ import viteLogo from '/src/assets/vite.svg'
 
 //style
 import '/src/App.css'
+import './Login.css'
 
 //component
 import Header from '/src/components/Header';

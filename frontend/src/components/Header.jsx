@@ -7,7 +7,9 @@ import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 
 //assets
-import heroImg from '/src/assets/hero.png'
+import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
 
 //style
 import './Header.css'
@@ -50,14 +52,3 @@ function Header() {
 }
 
 export default Header;
-
-//comment utiliser un composant dans un autre fichier
-// import Header from './Header';
-// function App() {
-//     return (
-//         <div>
-//             <Header />
-//             <p>Bienvenue sur mon site</p>
-//         </div>
-//     );
-// }

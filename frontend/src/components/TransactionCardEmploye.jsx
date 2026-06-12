@@ -2,7 +2,7 @@ import React from 'react'
 
 function TransactionCardEmploye({ transaction, onAccepter, onRefuser }) {
   return (
-    <div className="estate-card" style={{ padding: '15px', marginBottom: '15px', borderLeft: '5px solid orange' }}>
+    <div className="transEmploye-card" style={{ padding: '15px', marginBottom: '15px', borderLeft: '5px solid orange' }}>
       <h3>Proposition sur le Bien n°{transaction.bien_id}</h3>
       <p>Client ID : {transaction.client_id}</p>
       <p>Montant proposé : <strong>{transaction.prix_final} €</strong></p>

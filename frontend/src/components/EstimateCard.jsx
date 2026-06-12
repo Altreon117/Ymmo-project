@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import heroImg from '/src/assets/hero.png'
-import './EstateCard.css'
+import './EstimateCard.css'
 
 function EstimateCard({ bien, onEstimationValidee }) {
   const [prixEstime, setPrixEstime] = useState('')

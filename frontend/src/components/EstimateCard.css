@@ -1,4 +1,4 @@
-.estate-card {
+.estimate-card {
   background-color: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -6,19 +6,17 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Permet aux cartes d'avoir la même hauteur dans une grille */
-  min-height: 550px;
 }
 
 /* L'effet interactif au survol de la souris */
-.estate-card:hover {
+.estimate-card:hover {
   transform: translateY(-5px); /* Soulève légèrement la carte */
   box-shadow: var(--shadow);
   border-color: var(--accent-border);
 }
 
 /* L'image de l'annonce (Miniature) */
-.estate-image {
+.estimate-image {
   width: 100%;
   height: 220px; /* Fixe une hauteur uniforme pour toutes les images */
   object-fit: cover; /* Assure que la photo remplisse le cadre sans se déformer */
@@ -27,7 +25,7 @@
 }
 
 /* La zone de texte sous l'image */
-.estate-info {
+.estimate-info {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -37,7 +35,7 @@
 }
 
 /* Le titre de l'annonce */
-.estate-title {
+.estimate-title {
   font-size: 1.25rem;
   margin: 0;
   color: var(--text-h);
@@ -46,7 +44,7 @@
 }
 
 /* La description de l'annonce */
-.estate-description {
+.estimate-description {
   font-size: 0.95rem;
   color: var(--text);
   margin: 0;
@@ -59,7 +57,7 @@
 }
 
 /* Les métadonnées (Ville, Surface, Type) */
-.estate-meta {
+.estimate-meta {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text);
@@ -70,7 +68,7 @@
 }
 
 /* Le prix */
-.estate-price {
+.estimate-price {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
@@ -78,7 +76,7 @@
 }
 
 /* Le bouton d'action */
-.estate-card .btn-primary {
+.estimate-card .btn-primary {
   margin-top: auto; /* Force le bouton à rester collé en bas de la carte */
   background-color: var(--accent);
   color: white;
@@ -92,10 +90,10 @@
   display: block;
 }
 
-.estate-card .btn-primary:hover {
+.estimate-card .btn-primary:hover {
   filter: brightness(1.1);
 }
 
-.estate-card .btn-primary:active {
+.estimate-card .btn-primary:active {
   transform: scale(0.98);
 }

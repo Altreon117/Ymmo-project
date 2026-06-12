@@ -1,9 +1,10 @@
 .logo-nav-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
+/* Garde la suite intacte (user-menu, logout-button, etc.) */
 .logo-button {
   background: none;
   border: none;

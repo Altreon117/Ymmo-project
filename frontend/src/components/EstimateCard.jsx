@@ -28,11 +28,11 @@ function EstimateCard({ bien, onEstimationValidee }) {
   }
 
   return (
-    <div className="estate-card">
-      <img src={heroImg} className="estate-image" alt="A estimer" />
-      <div className="estate-info">
-        <h2 className="estate-title">{bien.titre}</h2>
-        <p className="estate-description">{bien.ville} · {bien.surface} m² · {bien.type_bien}</p>
+    <div className="estimate-card">
+      <img src={heroImg} className="estimate-image" alt="A estimer" />
+      <div className="estimate-info">
+        <h2 className="estimate-title">{bien.titre}</h2>
+        <p className="estimate-description">{bien.ville} · {bien.surface} m² · {bien.type_bien}</p>
         
         <div style={{ marginTop: '15px', display: 'flex', gap: '10px' }}>
           <input 

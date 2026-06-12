@@ -11,13 +11,15 @@ import IndexClient from './pages/Client/IndexClient.jsx'
 import MyAccountClient from './pages/Client/MyAccountClient.jsx'
 import MyAccountEmploye from './pages/Employe/MyAccountEmploye.jsx'
 import Catalogue from './pages/EstateBoard.jsx'
-import Agencies from './pages/Agencies.jsx'
+import AgenciesBoard from './pages/AgenciesBoard.jsx'
 import EstateDetails from './pages/EstateDetails.jsx'
 import EstateManager from './pages/Employe/EstateManager.jsx'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
 
 import IndexEmploye from './pages/Employe/IndexEmploye.jsx'
+
+import MyEstimateEstate from './pages/Employe/MyEstimateEstate.jsx'
 
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -31,7 +33,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/EstateBoard" element={<Catalogue />} />
-          <Route path="/Agencies" element={<Agencies />} />
+          <Route path="/AgenciesBoard" element={<AgenciesBoard />} />
           <Route path="/EstateDetails/:id" element={<EstateDetails />} />
 
           {/* Client routes */}
@@ -40,6 +42,14 @@ createRoot(document.getElementById('root')).render(
             element={
               <ProtectedRoute requiredRole="client">
                 <IndexClient />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/MyEstimateEstate"
+            element={
+              <ProtectedRoute requiredRole="client">
+                <MyEstimateEstate />
               </ProtectedRoute>
             }
           />

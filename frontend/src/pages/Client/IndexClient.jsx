@@ -37,7 +37,7 @@ function IndexClient() {
               </div>
               <div className="Choice2">
                 <p className="DisplayButtonIndic">J’estime mon appartement ou ma maison</p>
-                <Link to="/EstateBoard" className="DisplayButton">ESTIMER MON BIEN</Link>
+                <Link to="/MyEstimateEstate" className="DisplayButton">ESTIMER MON BIEN</Link>
               </div>
             </div>
           </div>

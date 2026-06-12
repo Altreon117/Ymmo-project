@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //assets
 import reactLogo from '/src/assets/react.svg'
@@ -69,6 +70,8 @@ function SignUp() {
           {error && <p className="form-error">{error}</p>}
           <button type="submit">Sign Up</button>
         </form>
+
+        <Link to="Login">Already have an account ? Log In</Link>
       </section>
       <Footer />
     </>

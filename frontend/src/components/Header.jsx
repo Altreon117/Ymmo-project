@@ -35,7 +35,7 @@ function Header() {
                     <ul>
                         <Link to="/">Accueil</Link>
                         <Link to="/EstateBoard">Catalogue</Link>
-                        <Link to="/Agencies">Nos Agences</Link>
+                        <Link to="/AgenciesBoard">Nos Agences</Link>
                     </ul>
                 </nav>
             </div>

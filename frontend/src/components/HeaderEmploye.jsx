@@ -27,7 +27,7 @@ function HeaderEmploye() {
                     <ul>
                         <Link to="/IndexEmploye">Accueil</Link>
                         <Link to="/EstateBoard">Catalogue</Link>
-                        <Link to="/Agencies">Nos Agences</Link>
+                        <Link to="/AgenciesBoard">Nos Agences</Link>
                         <Link to="/EstateManager">Estimation</Link>
                     </ul>
                 </nav>

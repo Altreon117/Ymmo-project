@@ -7,6 +7,8 @@ from app.database import SessionLocal
 from app.models.bien import Bien
 from app.schemas.bien import BienCreate, BienOut
 
+from pydantic import BaseModel
+
 router = APIRouter(prefix="/biens", tags=["Biens Immobiliers"])
 
 def get_db():
@@ -70,3 +72,27 @@ def rechercher_biens(
         "total_trouve": len(resultats),
         "resultats": resultats
     }
+
+
+# 1. Un petit schema pour recevoir uniquement le prix
+class PrixUpdate(BaseModel):
+    prix: float
+
+# 2. La route pour récupérer uniquement les biens en attente
+@router.get("/statut/attente", response_model=list[BienOut])
+def lire_biens_en_attente(db: Session = Depends(get_db)):
+    return db.query(Bien).filter(Bien.statut == "WaitingEstimation").all()
+
+# 3. La route pour mettre à jour le prix et passer en "Disponible"
+@router.put("/{bien_id}/estimer", response_model=BienOut)
+def estimer_bien(bien_id: int, estimation: PrixUpdate, db: Session = Depends(get_db)):
+    bien = db.query(Bien).filter(Bien.id == bien_id).first()
+    if not bien:
+        raise HTTPException(status_code=404, detail="Bien non trouvé")
+    
+    bien.prix = estimation.prix
+    bien.statut = "Disponible"
+    
+    db.commit()
+    db.refresh(bien)
+    return bien

@@ -45,3 +45,32 @@ export async function fetchBiens() {
 export async function fetchBien(id) {
   return apiRequest(`/biens/${id}`);
 }
+
+// --- DANS src/api.js ---
+
+export async function createTransaction(payload) {
+  return apiRequest('/transactions', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function fetchClientTransactions(clientId) {
+  return apiRequest(`/transactions/client/${clientId}`);
+}
+
+export async function fetchEmployeTransactions() {
+  return apiRequest('/transactions/employe/attente');
+}
+
+export async function accepterTransaction(id) {
+  return apiRequest(`/transactions/${id}/accepter`, { method: 'PUT' });
+}
+
+export async function refuserTransaction(id) {
+  return apiRequest(`/transactions/${id}`, { method: 'DELETE' });
+}
+
+export async function fetchAgences() {
+  return apiRequest('/agences/');
+}

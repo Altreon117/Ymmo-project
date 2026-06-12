@@ -7,6 +7,7 @@ import '/src/App.css'
 //component
 import Header from '/src/components/Header'
 import Footer from '/src/components/Footer'
+import BuyForm from '../components/BuyForm'
 import { fetchBien } from '/src/api'
 
 function EstateDetails() {
@@ -43,6 +44,7 @@ function EstateDetails() {
             <p>Surface: {bien.surface} m²</p>
             <p>Prix: {bien.prix} €</p>
             <p>Statut: {bien.statut}</p>
+            <BuyForm bien={bien} />
             <Link to="/EstateBoard">Retour à la liste</Link>
           </div>
         )}

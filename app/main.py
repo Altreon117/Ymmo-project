@@ -27,3 +27,5 @@ app.include_router(biens.router)
 app.include_router(agences.router)
 from app.routers.users import router as users_router
 app.include_router(users_router)
+from app.routers import transactions
+app.include_router(transactions.router)

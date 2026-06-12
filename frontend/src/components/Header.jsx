@@ -36,6 +36,9 @@ function Header() {
                         <Link to="/">Accueil</Link>
                         <Link to="/EstateBoard">Catalogue</Link>
                         <Link to="/AgenciesBoard">Nos Agences</Link>
+                        {isAuthenticated && user?.role === 'client' && (
+                            <Link to="/MyTransactionClient">Mes Transactions</Link>
+                        )}
                     </ul>
                 </nav>
             </div>

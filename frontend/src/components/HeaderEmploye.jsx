@@ -29,6 +29,7 @@ function HeaderEmploye() {
                         <Link to="/EstateBoard">Catalogue</Link>
                         <Link to="/AgenciesBoard">Nos Agences</Link>
                         <Link to="/EstateManager">Estimation</Link>
+                        <Link to="/MyTransactionEmploye">Mes Transactions</Link>
                     </ul>
                 </nav>
             </div>

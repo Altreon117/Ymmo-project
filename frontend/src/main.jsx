@@ -24,6 +24,9 @@ import MyEstimateEstate from './pages/Employe/MyEstimateEstate.jsx'
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 
+import MyTransactionClient from './pages/Client/MyTransactionClient.jsx'
+import MyTransactionEmploye from './pages/Employe/MyTransactionEmploye.jsx'
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
@@ -87,6 +90,26 @@ createRoot(document.getElementById('root')).render(
               </ProtectedRoute>
             }
           />
+
+          {/* Client routes */}
+          <Route 
+            path="/MyTransactionClient" 
+            element={
+              <ProtectedRoute requiredRole="client">
+                <MyTransactionClient />
+                </ProtectedRoute>
+              } 
+            />
+
+          {/* Employee routes */}
+            <Route 
+              path="/MyTransactionEmploye" 
+              element={
+                <ProtectedRoute requiredRole="employe">
+                  <MyTransactionEmploye />
+                  </ProtectedRoute>
+              } 
+            />
 
           {/* Test routes */}
           <Route path="/Test" element={<Test />} />

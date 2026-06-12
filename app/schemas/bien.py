@@ -10,6 +10,8 @@ class BienBase(BaseModel):
     ville: str
     statut: str = "Disponible"
     agence_id: int
+    nbr_pieces: int
+    type_article: str # <--- L'INFORMATION ENVOYÉE À REACT
 
 class BienCreate(BienBase):
     pass

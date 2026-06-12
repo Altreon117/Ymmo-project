@@ -18,33 +18,46 @@ function Filter({ biens, onFilter }) {
 
     let filtered = biens
 
-    // Filter by location (ville)
+    // 1. NOUVEAU : Filtrer par type d'article (ACHETER ou LOUER)
+    if (filters.type) {
+      filtered = filtered.filter((bien) =>
+        bien.type_article === filters.type
+      )
+    }
+
+    // 2. Filtrer par localisation (ville)
     if (filters.location) {
       filtered = filtered.filter((bien) =>
         bien.ville?.toLowerCase().includes(filters.location.toLowerCase())
       )
     }
 
-    // Filter by property type (type_bien)
+    // 3. Filtrer par type de bien (Appartement, Maison, etc.)
     if (filters.propertyType) {
       filtered = filtered.filter((bien) =>
         bien.type_bien?.toLowerCase() === filters.propertyType.toLowerCase()
       )
     }
 
-    // Filter by number of rooms (nbr_pieces)
+    // 4. CORRIGÉ : Filtrer par nombre de pièces (nbr_pieces)
     if (filters.rooms) {
       const roomCount = parseInt(filters.rooms, 10)
-      filtered = filtered.filter((bien) => bien.nbr_pieces === roomCount)
+      if (roomCount === 5) {
+        // Si l'option "5 pièces et +" est sélectionnée
+        filtered = filtered.filter((bien) => bien.nbr_pieces >= 5)
+      } else {
+        // Pour les autres options (1, 2, 3, 4)
+        filtered = filtered.filter((bien) => bien.nbr_pieces === roomCount)
+      }
     }
 
-    // Filter by minimum surface (surface)
+    // 5. Filtrer par surface minimum
     if (filters.minSurface) {
       const minSurf = parseFloat(filters.minSurface)
       filtered = filtered.filter((bien) => bien.surface >= minSurf)
     }
 
-    // Filter by maximum price (prix)
+    // 6. Filtrer par prix maximum
     if (filters.maxPrice) {
       const maxPrix = parseFloat(filters.maxPrice)
       filtered = filtered.filter((bien) => bien.prix <= maxPrix)

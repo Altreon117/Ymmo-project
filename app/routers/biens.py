@@ -18,9 +18,11 @@ def get_db():
     finally:
         db.close()
 
+# --- MODIFICATION ICI : On filtre par statut "Disponible" ---
 @router.get("/", response_model=list[BienOut])
 def lire_les_biens(db: Session = Depends(get_db)):
-    return db.query(Bien).all()
+    return db.query(Bien).filter(Bien.statut == "Disponible").all()
+# ------------------------------------------------------------
 
 @router.post("/", response_model=BienOut)
 def creer_un_bien(bien_entrant: BienCreate, db: Session = Depends(get_db)):

@@ -14,5 +14,7 @@ class Bien(Base):
     ville = Column(String)
     statut = Column(String, default="Disponible")
     agence_id = Column(Integer, ForeignKey("agences.id"))
+    nbr_pieces = Column(Integer)
+    type_article = Column(String, default="ACHETER") # <--- NOUVELLE COLONNE
 
     agence = relationship("Agence", back_populates="biens")

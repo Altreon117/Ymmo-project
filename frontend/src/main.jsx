@@ -37,14 +37,14 @@ createRoot(document.getElementById('root')).render(
           <Route path="/signup" element={<SignUp />} />
           <Route path="/EstateBoard" element={<Catalogue />} />
           <Route path="/AgenciesBoard" element={<AgenciesBoard />} />
-          <Route path="/EstateDetails/:id" element={<EstateDetails />} />
+          <Route path="/" element={<IndexClient />} />
 
           {/* Client routes */}
           <Route
-            path="/"
+            path="/EstateDetails/:id"
             element={
               <ProtectedRoute requiredRole="client">
-                <IndexClient />
+                <EstateDetails />
               </ProtectedRoute>
             }
           />
